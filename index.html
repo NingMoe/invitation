@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html style="height:100%;">
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<title>大数据与资本 2014互联网高峰论坛</title>
+<!--Adobe Edge Runtime-->
+    <script type="text/javascript" charset="utf-8" src="invitation7_edgePreload.js"></script>
+    <script type="text/javascript">
+    
+  
+//weixin
+  
+var imgUrl = 'http://wx.miningdata.com.cn/invitation/images/logo.jpg';
+var lineLink = 'http://wx.miningdata.com.cn/invitation/';
+var descContent = "2014年11月14日08:30，中国舟山市 海中洲国际大酒店，会议规模300人";
+var shareTitle = '大数据与资本 2014互联网高峰论坛';
+var appid = '';
+
+function shareFriend() {
+    WeixinJSBridge.invoke('sendAppMessage',{
+                            "appid": appid,
+                            "img_url": imgUrl,
+                            "img_width": "100",
+                            "img_height": "100",
+                            "link": lineLink,
+                            "desc": descContent,
+                            "title": shareTitle
+                            }, function(res) {
+                            _report('send_msg', res.err_msg);
+                            })
+}
+function shareTimeline() {
+    WeixinJSBridge.invoke('shareTimeline',{
+                            "img_url": imgUrl,
+                            "img_width": "100",
+                            "img_height": "100",
+                            "link": lineLink,
+                            "desc": descContent,
+                            "title": shareTitle
+                            }, function(res) {
+                            _report('timeline', res.err_msg);
+                            });
+}
+function shareWeibo() {
+    WeixinJSBridge.invoke('shareWeibo',{
+                            "content": descContent,
+                            "url": lineLink,
+                            }, function(res) {
+                            _report('weibo', res.err_msg);
+                            });
+}
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+
+        WeixinJSBridge.on('menu:share:appmessage', function(argv){
+            shareFriend();
+            });
+
+        WeixinJSBridge.on('menu:share:timeline', function(argv){
+            shareTimeline();
+            });
+
+        WeixinJSBridge.on('menu:share:weibo', function(argv){
+            shareWeibo();
+            });
+        }, false);
+
+</script>
+	<style>
+        .edgeLoad-EDGE-32363606 { visibility:hidden; }
+    </style>
+<!--Adobe Edge Runtime End-->
+
+
+</head>
+<body style="margin:0;padding:0;height:100%;" ondblclick="alert('ok');">
+	<div id="Stage" class="EDGE-32363606">
+	</div>
+</body>
+</html>
